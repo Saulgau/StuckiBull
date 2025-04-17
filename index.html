@@ -1,144 +1,194 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <title>StuckiBull – Dein Bau-Energie-Shop</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>STUCKI BOOST – Energy für echte Macher</title>
   <style>
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
-      font-family: "Segoe UI", sans-serif;
-      background: #111;
-      color: #fefefe;
+      padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f0f0f;
+      color: #fff;
+      line-height: 1.6;
     }
     header {
-      background: #b10000;
-      color: white;
+      background: #ff6600;
+      padding: 50px 20px;
       text-align: center;
-      padding: 20px;
     }
-    .logo {
-      width: 80px;
+    header h1 {
+      font-size: 3em;
+      letter-spacing: 1px;
     }
-    .container {
-      max-width: 800px;
-      margin: auto;
-      padding: 20px;
+    header p {
+      font-size: 1.2em;
+      margin-top: 10px;
     }
-    .product {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-bottom: 30px;
-    }
-    .product img {
-      width: 200px;
-    }
-    .info {
-      flex: 1;
-    }
-    label, select, input {
-      display: block;
-      margin: 10px 0;
-      font-size: 1em;
-      width: 100%;
-      max-width: 300px;
-    }
-    input[type="text"] {
-      padding: 8px;
-    }
-    .btn {
-      padding: 10px 20px;
-      background: #ff0000;
-      color: white;
-      border: none;
-      font-size: 1em;
-      cursor: pointer;
-    }
-    .btn:hover {
-      background: #cc0000;
-    }
-    .result {
-      margin-top: 20px;
-      background: #222;
-      padding: 15px;
-      border-left: 4px solid #ffcc00;
-    }
-    footer {
-      text-align: center;
-      padding: 15px;
+
+    nav {
       background: #1a1a1a;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 15px 0;
+    }
+    nav a {
+      color: #ffcc00;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+    nav a:hover {
+      color: #ffffff;
+    }
+
+    section {
+      padding: 50px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    section h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #ff6600;
+    }
+
+    .grid {
+      display: grid;
+      gap: 30px;
+    }
+    .grid-2 {
+      grid-template-columns: 1fr;
+    }
+    .grid-3 {
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 768px) {
+      .grid-2 {
+        grid-template-columns: 1fr 1fr;
+      }
+      .grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .can-img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .highlight {
+      color: #ffcc00;
+      font-weight: bold;
+    }
+
+    .button {
+      background: #ff6600;
+      padding: 12px 25px;
+      display: inline-block;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      margin-top: 20px;
+      text-decoration: none;
+    }
+    .button:hover {
+      background: #e05200;
+    }
+
+    footer {
+      background: #111;
+      text-align: center;
+      padding: 30px;
       color: #888;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
     }
   </style>
 </head>
 <body>
 
 <header>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Bull_icon.svg/512px-Bull_icon.svg.png" class="logo" alt="StuckiBull Logo">
-  <h1>STUCKIBULL SHOP</h1>
-  <p>Verleiht Flügel auf’m Bau!</p>
+  <h1>STUCKI BOOST</h1>
+  <p>Energy für echte Macher auf’m Bau, am Kabel und überall!</p>
 </header>
 
-<div class="container">
-  <div class="product">
-    <img src="https://i.ibb.co/DHRSwMq8/95-AC00-C8-A56-F-41-B2-A056-E22-F3-D13-AFA2.jpg" alt="StuckiBull Dose">
-    <div class="info">
-      <h2>StuckiBull Energy – 250 ml</h2>
-      <p>Der ultimative Bau-Energie-Kick für Profis auf der Baustelle.</p>
-      <label for="menge">Wähle die Menge:</label>
-      <select id="menge">
-        <option value="1">1 Dose – 1,49€</option>
-        <option value="6">6er Pack – 8,49€</option>
-        <option value="24">24er Tray – 29,99€</option>
-      </select>
+<nav>
+  <a href="#produkt">Produkt</a>
+  <a href="#vorteile">Vorteile</a>
+  <a href="#galerie">Galerie</a>
+  <a href="#team">Team</a>
+  <a href="#kontakt">Kontakt</a>
+</nav>
 
-      <label for="name">Dein Name:</label>
-      <input type="text" id="name" placeholder="Max Mustermann">
-
-      <label for="adresse">Deine Adresse:</label>
-      <input type="text" id="adresse" placeholder="Musterstraße 1, 12345 Baustadt">
-
-      <button class="btn" onclick="bestellen()">Jetzt bestellen (Fake)</button>
+<section id="produkt">
+  <h2>Unser Produkt</h2>
+  <div class="grid grid-2">
+    <div>
+      <p><span class="highlight">STUCKI BOOST</span> ist mehr als ein Energy Drink. Es ist dein Werkzeug für mehr Fokus, mehr Power und ein klaren Kopf – egal ob du Stuck ziehst, Kabel legst oder die Welt verputzt.</p>
+      <ul>
+        <li>Mit Koffein, Taurin & Apfelsaft</li>
+        <li>Nur 46 kcal pro 100 ml</li>
+        <li>100% Bauplatz-approved</li>
+      </ul>
+      <a href="#" class="button">Jetzt probieren</a>
+    </div>
+    <div>
+      <img src="DEIN-BILD-VON-DER-DOSE.jpg" alt="Stucki Boost Dose" class="can-img" />
     </div>
   </div>
+</section>
 
-  <div id="result" class="result" style="display: none;"></div>
-</div>
+<section id="vorteile">
+  <h2>Warum STUCKI BOOST?</h2>
+  <div class="grid grid-3">
+    <div>
+      <h3>Für Macher</h3>
+      <p>Ob Elektriker, Stuckateur oder Flaschner – dieser Drink versteht deinen Alltag.</p>
+    </div>
+    <div>
+      <h3>Direkter Effekt</h3>
+      <p>Dank gezielter Formel bekommst du Fokus & Energie, wenn du sie brauchst.</p>
+    </div>
+    <div>
+      <h3>Stil & Statement</h3>
+      <p>Du zeigst mit STUCKI BOOST, dass du keine halben Sachen machst.</p>
+    </div>
+  </div>
+</section>
+
+<section id="galerie">
+  <h2>Galerie</h2>
+  <div class="grid grid-3">
+    <img src="stuckateur-mit-dose.jpg" alt="Stuckateur" />
+    <img src="elektriker-mit-dose.jpg" alt="Elektriker" />
+    <img src="24er-tray.jpg" alt="Tray" />
+  </div>
+</section>
+
+<section id="team">
+  <h2>Unser Team</h2>
+  <p>Gegründet auf’m Bau – entwickelt mit Leidenschaft. Wir sind ein kleines Team aus echten Handwerkern, Designern und Machern. Und wir haben einen Traum: **Energy, die zu uns passt.**</p>
+</section>
+
+<section id="kontakt">
+  <h2>Kontakt</h2>
+  <p>Interesse, Fragen oder Feedback? Schreib uns an <a href="mailto:info@stuckiboost.de" class="highlight">info@stuckiboost.de</a> oder scanne den QR-Code auf der Dose.</p>
+</section>
 
 <footer>
-  <p>&copy; 2025 StuckiBull GmbH – Alles nur zum Spaß! Kein echter Shop.</p>
+  <p>&copy; 2025 STUCKI BOOST – Made in Germany. Für Profis mit Power.</p>
 </footer>
-
-<script>
-  function bestellen() {
-    const menge = document.getElementById("menge").value;
-    const name = document.getElementById("name").value.trim();
-    const adresse = document.getElementById("adresse").value.trim();
-    const result = document.getElementById("result");
-
-    let preis = 0;
-    if (menge == "1") preis = 1.49;
-    else if (menge == "6") preis = 8.49;
-    else if (menge == "24") preis = 29.99;
-
-    if (!name || !adresse) {
-      result.innerHTML = "<strong>Bitte Name und Adresse eingeben!</strong>";
-      result.style.display = "block";
-      return;
-    }
-
-    result.innerHTML = `
-      <h3>Bestellung erfolgreich simuliert!</h3>
-      <p><strong>Name:</strong> ${name}</p>
-      <p><strong>Adresse:</strong> ${adresse}</p>
-      <p><strong>Menge:</strong> ${menge}</p>
-      <p><strong>Preis:</strong> ${preis.toFixed(2)} €</p>
-      <p style="color:#ffcc00;">**Hinweis: Dies ist ein Fake-Shop zum Testen.**</p>
-    `;
-    result.style.display = "block";
-  }
-</script>
 
 </body>
 </html>
