@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>StuckiBull – Dein Bau-Energie-Shop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: #111;
+      color: #fefefe;
+    }
+    header {
+      background: #b10000;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    .logo {
+      width: 80px;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+    }
+    .product {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+    .product img {
+      width: 200px;
+    }
+    .info {
+      flex: 1;
+    }
+    label, select, input {
+      display: block;
+      margin: 10px 0;
+      font-size: 1em;
+      width: 100%;
+      max-width: 300px;
+    }
+    input[type="text"] {
+      padding: 8px;
+    }
+    .btn {
+      padding: 10px 20px;
+      background: #ff0000;
+      color: white;
+      border: none;
+      font-size: 1em;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: #cc0000;
+    }
+    .result {
+      margin-top: 20px;
+      background: #222;
+      padding: 15px;
+      border-left: 4px solid #ffcc00;
+    }
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #1a1a1a;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Bull_icon.svg/512px-Bull_icon.svg.png" class="logo" alt="StuckiBull Logo">
+  <h1>STUCKIBULL SHOP</h1>
+  <p>Verleiht Flügel auf’m Bau!</p>
+</header>
+
+<div class="container">
+  <div class="product">
+    <img src="https://i.imgur.com/3oeUoBQ.png" alt="StuckiBull Dose">
+    <div class="info">
+      <h2>StuckiBull Energy – 250 ml</h2>
+      <p>Der ultimative Bau-Energie-Kick für Profis auf der Baustelle.</p>
+      <label for="menge">Wähle die Menge:</label>
+      <select id="menge">
+        <option value="1">1 Dose – 1,49€</option>
+        <option value="6">6er Pack – 8,49€</option>
+        <option value="24">24er Tray – 29,99€</option>
+      </select>
+
+      <label for="name">Dein Name:</label>
+      <input type="text" id="name" placeholder="Max Mustermann">
+
+      <label for="adresse">Deine Adresse:</label>
+      <input type="text" id="adresse" placeholder="Musterstraße 1, 12345 Baustadt">
+
+      <button class="btn" onclick="bestellen()">Jetzt bestellen (Fake)</button>
+    </div>
+  </div>
+
+  <div id="result" class="result" style="display: none;"></div>
+</div>
+
+<footer>
+  <p>&copy; 2025 StuckiBull GmbH – Alles nur zum Spaß! Kein echter Shop.</p>
+</footer>
+
+<script>
+  function bestellen() {
+    const menge = document.getElementById("menge").value;
+    const name = document.getElementById("name").value.trim();
+    const adresse = document.getElementById("adresse").value.trim();
+    const result = document.getElementById("result");
+
+    let preis = 0;
+    if (menge == "1") preis = 1.49;
+    else if (menge == "6") preis = 8.49;
+    else if (menge == "24") preis = 29.99;
+
+    if (!name || !adresse) {
+      result.innerHTML = "<strong>Bitte Name und Adresse eingeben!</strong>";
+      result.style.display = "block";
+      return;
+    }
+
+    result.innerHTML = `
+      <h3>Bestellung erfolgreich simuliert!</h3>
+      <p><strong>Name:</strong> ${name}</p>
+      <p><strong>Adresse:</strong> ${adresse}</p>
+      <p><strong>Menge:</strong> ${menge}</p>
+      <p><strong>Preis:</strong> ${preis.toFixed(2)} €</p>
+      <p style="color:#ffcc00;">**Hinweis: Dies ist ein Fake-Shop zum Testen.**</p>
+    `;
+    result.style.display = "block";
+  }
+</script>
+
+</body>
+</html>
